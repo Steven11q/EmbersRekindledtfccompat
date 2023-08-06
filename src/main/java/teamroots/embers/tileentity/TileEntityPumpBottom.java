@@ -30,6 +30,7 @@ import teamroots.embers.block.BlockPump;
 import teamroots.embers.power.DefaultEmberCapability;
 import teamroots.embers.util.FluidUtil;
 import teamroots.embers.util.Misc;
+import 
 
 import javax.annotation.Nullable;
 import java.util.ArrayList;
@@ -120,7 +121,7 @@ public class TileEntityPumpBottom extends TileEntity implements ITileEntityBase,
 	public boolean attemptPump(BlockPos pos){
 		IBlockState state = world.getBlockState(pos);
 		if (state.getBlock() instanceof IFluidBlock && ((IFluidBlock)state.getBlock()).canDrain(world, pos) || state.getBlock() instanceof BlockStaticLiquid){
-			if (capability.getEmber() > 0 || state.getBlock() == Blocks.WATER){
+			if (capability.getEmber() > 0){
 				FluidStack stack = FluidUtil.getFluid(world, pos, state);
 				if (stack != null){
 					TileEntityPumpTop t = (TileEntityPumpTop)world.getTileEntity(getPos().up());
